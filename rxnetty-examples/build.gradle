@@ -27,3 +27,11 @@ dependencies {
     compile "io.reactivex:rxjava-string:1.0.0"
     compile "org.slf4j:slf4j-log4j12:${slf4j_version}"
 }
+
+task runSseServer (dependsOn: [classes], type: JavaExec) {
+    group = "Examples"
+    description = "Run server side events server"
+
+    main = "io.reactivex.netty.examples.http.sse.HelloSseServer"
+    classpath = sourceSets.main.runtimeClasspath
+}
