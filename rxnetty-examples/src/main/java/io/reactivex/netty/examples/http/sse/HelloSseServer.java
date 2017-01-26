@@ -40,7 +40,7 @@ public final class HelloSseServer {
         ExamplesEnvironment env = ExamplesEnvironment.newEnvironment(HelloSseServer.class);
         HttpServer<ByteBuf, ByteBuf> server;
 
-        server = HttpServer.newServer()
+        server = HttpServer.newServer(8989)
                            .enableWireLogging("sse-server", LogLevel.DEBUG)
                            .start((req, resp) ->
                                           resp.transformToServerSentEvents()
